@@ -61,10 +61,16 @@ git submodule init
 git submodule update --remote
 ```
 
-`cd` into etk and install it using:
+`cd` into etk-asm and install it using:
 
 ```bash
-cargo install --features cli etk-asm etk-dasm
+cargo install --features cli --path .
+```
+
+`cd` into etk-dasm and install it using
+
+```bash
+cargo install --features cli --path .
 ```
 
 Implement test cases using etk in `src/etk-test-cases` then generate the bytecode using:

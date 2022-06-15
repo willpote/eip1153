@@ -1,0 +1,11 @@
+# 04 - 2
+# bytecode for address 2, did a tstore in address 1
+# loading a slot in a separate contract after storing returns 0: TSTORE(x, y), CALL(z, ...), TLOAD(x) returns 0
+#
+# expect storage slot 0 to have 0 for address 2
+
+push1 0
+tload
+
+push1 0
+sstore
