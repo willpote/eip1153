@@ -8,6 +8,20 @@ push1 10
 push1 0
 tstore
 
+# call contract w/non-zero calldata
+push1 0
+push1 0
+push1 32
+push1 0
+push1 0
+push32 0x000000000000000000000000000000000000000B
+push2 0xFFFF
+call
+
+# store success return from call
+push1 1
+sstore
+
 push1 0
 tload
 
