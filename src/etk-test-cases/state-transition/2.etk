@@ -1,6 +1,8 @@
+# 02
 # loading after storing returns the stored value: TSTORE(x, y), TLOAD(x) returns y
 # 
-# expect: storage slot 0 to have value 88
+# expect: storage slot 1 to have value 88
+# TODO: failing
 
 push1 88
 push1 0
@@ -9,5 +11,5 @@ tstore
 push1 0
 tload
 
-push1 0
+push1 1
 sstore

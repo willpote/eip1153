@@ -1,0 +1,37 @@
+# 01
+# load arbitrary value is 0 at beginning of transaction: TLOAD(x) is 0
+# 
+# expect storage slot 1 to have value 0
+6000b3600155
+
+# 02
+# loading after storing returns the stored value: TSTORE(x, y), TLOAD(x) returns y
+# 
+# expect: storage slot 1 to have value 88
+# TODO: failing
+60586000b46000b3600155
+
+# 03
+# loading any other slot after storing to a slot returns 0: TSTORE(x, y), TLOAD(x + n) where n > 0 returns 0
+#
+# expect storage slot n to have value 0
+# Ex 1) stores 30 at slot 0, loads from slot 1, expects storage slot 0 to have 0
+601e6000b46001b3600055
+
+# 04 - 1 
+# bytecode at address 1
+# loading a slot in a separate contract after storing returns 0: TSTORE(x, y), CALL(z, ...), TLOAD(x) returns 0
+#
+# expect storage slot 0 to have 10 for address 1
+# TODO failing
+# call contract w/non-zero calldata
+# store success return from call
+600a6000b4600060006020600060007f000000000000000000000000000000000000000000000000000000000000000b61fffff16001556000b3600055
+
+# 04 - 2
+# bytecode for address 2, did a tstore in address 1
+# loading a slot in a separate contract after storing returns 0: TSTORE(x, y), CALL(z, ...), TLOAD(x) returns 0
+#
+# expect storage slot 0 to have 0 for address 2
+6000b3600055
+
