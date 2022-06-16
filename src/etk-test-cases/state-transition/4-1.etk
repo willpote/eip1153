@@ -3,6 +3,7 @@
 # loading a slot in a separate contract after storing returns 0: TSTORE(x, y), CALL(z, ...), TLOAD(x) returns 0
 #
 # expect storage slot 0 to have 10 for address 1
+# TODO failing
 
 push1 10
 push1 0
